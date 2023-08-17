@@ -1,4 +1,4 @@
-FROM tomcat:8.5.77-jdk11-openjdk-slim-bullseye AS builder
+FROM tomcat:8.5.82-jdk11-openjdk-slim-bullseye AS builder
 
 EXPOSE 8080
 
@@ -16,8 +16,8 @@ RUN unzip target/helloworld.war WEB-INF/lib/spring-beans-5.3.15.jar \
     && zip -u WEB-INF/lib/spring-beans-5.3.15.jar META-INF/maven/pom.properties \
     && zip -f target/helloworld.war WEB-INF/lib/spring-beans-5.3.15.jar
 
-FROM tomcat:8.5.77-jre11-openjdk-slim-bullseye AS jre11
+FROM tomcat:8.5.82-jre11-openjdk-slim-bullseye AS jre11
 COPY --from=builder /spring/target/helloworld.war /usr/local/tomcat/webapps/
 
-FROM tomcat:8.5.77-jre8-openjdk-slim-bullseye AS jre8
+FROM tomcat:8.5.82-jre8-openjdk-slim-bullseye AS jre8
 COPY --from=builder /spring/target/helloworld.war /usr/local/tomcat/webapps/
