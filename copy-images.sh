@@ -285,12 +285,12 @@ crane copy ubuntu ${TEST_IMAGE}:ubuntu-1804
 cat <<EOS
 
 #####################################
-vulnimage - knqyf263/vuln-image:1.2.3
+vulnimage - khulnasoft-lab/vuln-image:1.2.3
 #####################################
 
 EOS
 
-crane copy knqyf263/vuln-image ${TEST_IMAGE}:vulnimage
+crane copy khulnasoft-lab/vuln-image ${TEST_IMAGE}:vulnimage
 
 
 cat <<EOS
